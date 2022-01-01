@@ -33,8 +33,10 @@ generateBtn.addEventListener("click", writePassword);
 
 function getCharacter() {
   //Check to what was selected Yes
-  //Randomize Yes statements to pick one
+  
+  //Randomize Yes statements to pick one if not present Otherwise select at random
   //Go into randomly selected function and return character
+
 }
 
 function getLength() {
