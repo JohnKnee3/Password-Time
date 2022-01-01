@@ -6,13 +6,13 @@ function writePassword() {
   //ask length
   var passwordLength = window.prompt("How many characters would you like your password to be?  Select a number between 8 and 10.");
   if (passwordLength == 8) {
-    window.alert("Yo, this shit is 8 now");
+    window.alert("Yo, this is 8 now");
   }
   else if (passwordLength == 9) {
-    window.alert("Yo Yo, this shit is 9 now");
+    window.alert("Yo Yo, this is 9 now");
   }
   else if (passwordLength == 10) {
-    window.alert("Yo Yo Yo, this shit is 10 now");
+    window.alert("Yo Yo Yo, this is 10 now");
   }
 
   else {
