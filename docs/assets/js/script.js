@@ -37,5 +37,16 @@ function getLength() {
   return passwordLength;
 }
 
+function getLower() {
+  
+  // return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  var hasLower = window.prompt('Would you like to include lower case characters. Type "YES" or "NO".');
+  hasLower = hasLower.toLowerCase();
+  if (hasLower === "yes" || hasLower === "no") {
+    return hasLower;
+  }
+  window.alert("Please enter a valid response."); 
+  return getLower();
+}
 
 
