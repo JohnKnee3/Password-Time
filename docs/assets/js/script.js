@@ -32,7 +32,9 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function getCharacter() {
-  return 'a';
+  //Check to what was selected Yes
+  //Randomize Yes statements to pick one
+  //Go into randomly selected function and return character
 }
 
 function getLength() {
