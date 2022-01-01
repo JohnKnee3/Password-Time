@@ -38,7 +38,6 @@ function getLength() {
 }
 
 function getLower() {
-  
   // return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
   var hasLower = window.prompt('Would you like to include lower case characters. Type "YES" or "NO".');
   hasLower = hasLower.toLowerCase();
@@ -47,6 +46,17 @@ function getLower() {
   }
   window.alert("Please enter a valid response."); 
   return getLower();
+}
+
+function getUpper() {
+  // return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  var hasUpper = window.prompt('Would you like to include upper case characters. Type "YES" or "NO".');
+  hasUpper = hasUpper.toLowerCase();
+  if (hasUpper === "yes" || hasUpper === "no") {
+    return hasUpper;
+  }
+  window.alert("Please enter a valid response."); 
+  return getUpper();
 }
 
 
