@@ -15,10 +15,10 @@ function writePassword() {
   }    
   
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 }
-//Questions on what you want in your password
+
+//Length Question
 function getLength() {
   var passwordLength = window.prompt("How many characters would you like your password to be?  Select a number between 8 and 128.");
   if (passwordLength < 8 || passwordLength > 128) {
@@ -27,7 +27,7 @@ function getLength() {
   }
   return passwordLength;
 }
-
+//Lowercase Question
 function getLower() {
   var hasLower = window.prompt('Would you like to include Lower Case characters. Type "YES" or "NO".');
   hasLower = hasLower.toLowerCase();
@@ -37,7 +37,7 @@ function getLower() {
   window.alert("Please enter a valid response."); 
   return getLower();
 }
-
+//Uppercase question 
 function getUpper() {
   var hasUpper = window.prompt('Would you like to include Upper Case characters. Type "YES" or "NO".');
   hasUpper = hasUpper.toLowerCase();
@@ -47,7 +47,7 @@ function getUpper() {
   window.alert("Please enter a valid response."); 
   return getUpper();
 }
-
+//Symbol Question
 function getSymbol() {
   var hasSymbol = window.prompt('Would you like to include Symbol characters. Type "YES" or "NO".');
   hasSymbol = hasSymbol.toLowerCase();
@@ -58,8 +58,7 @@ function getSymbol() {
   return getSymbol();
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
 
 function getCharacter() {
   //Check to what was selected Yes
@@ -86,6 +85,9 @@ function getRandomSymbol() {
   const symbols= '!@#$%^&*(){}[]=<>/,.';
   return symbols [Math.floor(Math.random() * symbols.length)];
 }
+
+//the call that starts it all
+generateBtn.addEventListener("click", writePassword);8
 
 
 
