@@ -21,11 +21,12 @@ function writePassword() {
 //Length Question
 function getLength() {
   var passwordLength = window.prompt("How many characters would you like your password to be?  Select a number between 8 and 128.");
-  if (passwordLength < 8 || passwordLength > 128) {
-    window.alert("Pease enter a valid response.");
-    return getLength();
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    return passwordLength;
   }
-  return passwordLength;
+  window.alert("Pease enter a valid response.");
+    return getLength();
+  
 }
 //Lowercase Question
 function getLower() {
