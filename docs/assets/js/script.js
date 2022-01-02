@@ -4,11 +4,21 @@ var generateBtn = document.querySelector("#generate");
 //main function that writes the password
 function writePassword() {
   //storage of answers from the questions
+  
   var length = getLength();
   var lower = getLower();
   var upper = getUpper();
   var symbol = getSymbol();
   
+
+  const typesCount = lower + upper + symbol;
+
+  const typesArr = [{lower}, {upper}, {symbol}].filter
+  (item => Object.values(item)[0]);
+
+  console.log('typesArr: ', typesArr);
+
+
   var password = "";
   for (var i = 0; i < length; i++) {
     password = password + getCharacter() 
@@ -48,7 +58,8 @@ function getSymbol() {
 
 
 function getCharacter() {
-  //Check to what was selected Yes
+
+   //Check to what was selected Yes
   var functions = [getRandomLower, getRandomUpper, getRandomNumber, getRandomSymbol];
 
   //Randomize Yes statements to pick one if not present Otherwise select at random
