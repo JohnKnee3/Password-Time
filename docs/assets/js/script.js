@@ -88,7 +88,7 @@ function getRandomSymbol() {
 }
 
 //the call that starts it all
-generateBtn.addEventListener("click", writePassword);8
+generateBtn.addEventListener("click", writePassword);
 
 
 
