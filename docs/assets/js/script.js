@@ -33,10 +33,33 @@ generateBtn.addEventListener("click", writePassword);
 
 function getCharacter() {
   //Check to what was selected Yes
-  
-  //Randomize Yes statements to pick one if not present Otherwise select at random
-  //Go into randomly selected function and return character
+  var functions = [getRandomLower, getRandomUpper, getRandomNumber, getRandomSymbol];
 
+  
+  var result = functions[Math.floor(Math.random() * functions.length)]();
+  return result;
+
+
+  //Randomize Yes statements to pick one if not present Otherwise select at random
+  
+  
+}
+
+//Go into randomly selected function and return character
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+function getRandomSymbol() {
+  const symbols= '!@#$%^&*(){}[]=<>/,.';
+  return symbols [Math.floor(Math.random() * symbols.length)];
 }
 
 function getLength() {
