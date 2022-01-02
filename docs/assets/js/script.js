@@ -30,35 +30,21 @@ function getLength() {
 }
 //Lowercase Question
 function getLower() {
-  var hasLower = window.prompt('Would you like to include Lower Case characters. Type "YES" or "NO".');
-  hasLower = hasLower.toLowerCase();
-  if (hasLower === "yes" || hasLower === "no") {
-    return hasLower;
-  }
-  window.alert("Please enter a valid response."); 
-  return getLower();
+  var hasLower = window.confirm('Would you like to include Lower Case characters. Click Ok for "YES" and Cancel for "NO".');
+      return hasLower;
 }
+  
 //Uppercase question 
 function getUpper() {
-  var hasUpper = window.prompt('Would you like to include Upper Case characters. Type "YES" or "NO".');
-  hasUpper = hasUpper.toLowerCase();
-  if (hasUpper === "yes" || hasUpper === "no") {
-    return hasUpper;
-  }
-  window.alert("Please enter a valid response."); 
-  return getUpper();
+  var hasUpper = window.confirm('Would you like to include Upper Case characters. Click Ok for "YES" and Cancel for "NO".');
+      return hasUpper;
 }
+  
 //Symbol Question
 function getSymbol() {
-  var hasSymbol = window.prompt('Would you like to include Symbol characters. Type "YES" or "NO".');
-  hasSymbol = hasSymbol.toLowerCase();
-  if (hasSymbol === "yes" || hasSymbol === "no") {
-    return hasSymbol;
-  }
-  window.alert("Please enter a valid response."); 
-  return getSymbol();
+  var hasSymbol = window.confirm('Would you like to include Symbol characters. Click Ok for "YES" and Cancel for "NO".');
+      return hasSymbol;
 }
-
 
 
 function getCharacter() {
