@@ -21,11 +21,14 @@ function writePassword() {
   
   
   var password = "";
-
-  if (!lower, !upper, !symbol, !number) {
+  //check if everything is not selected and prints this instead
+  if (!lower && !upper && !symbol && !number) {
+    var password = "You get nothing!"
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
+    return "";
   }
+  
 
   var functions = createFunctionArray(lower, upper, symbol, number);
 
