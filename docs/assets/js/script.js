@@ -4,6 +4,11 @@ var generateBtn = document.querySelector("#generate");
 //the call that starts it all
 generateBtn.addEventListener("click", writePassword);
 
+var didRandomLower = false; 
+var didRandomUpper = false;
+var didRandomSymbol = false;
+var didRandomNumber = false;
+
 //main function that writes the password
 function writePassword() {
   //storage of answers from the questions
@@ -16,10 +21,16 @@ function writePassword() {
   var password = "";
 
   var functions = createFunctionArray(lower, upper, symbol);
-
-  for (var i = 0; i < length; i++) {
-    password = password + getCharacter(functions) 
-  }    
+  while(true) {
+    for (var i = 0; i < length; i++) {
+      password = password + getCharacter(functions) 
+    } 
+    if (((lower && didRandomLower) || !lower) &&
+        ((upper && didRandomUpper) || !upper) &&
+        ((symbol && didRandomSymbol) || !symbol) && 
+          didRandomNumber)
+      break;  
+  } 
   
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
