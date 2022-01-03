@@ -1,9 +1,10 @@
-// Assignment Code
+// button variable
 var generateBtn = document.querySelector("#generate");
 
-//the call that starts it all
+//the button call that starts it all
 generateBtn.addEventListener("click", writePassword);
 
+//variables for checking if they are included
 var didRandomLower = false; 
 var didRandomUpper = false;
 var didRandomSymbol = false;
@@ -12,16 +13,18 @@ var didRandomNumber = false;
 //main function that writes the password
 function writePassword() {
   //storage of answers from the questions
-  
   var length = getLength();
   var lower = getLower();
   var upper = getUpper();
   var symbol = getSymbol();
   
   var password = "";
-
+  
   var functions = createFunctionArray(lower, upper, symbol);
+
+  //while loop to see if password was made correctly
   while(true) {
+    //for loop to make the password
     for (var i = 0; i < length; i++) {
       password = password + getCharacter(functions) 
     } 
@@ -31,7 +34,7 @@ function writePassword() {
           didRandomNumber)    
       break;  
   } 
-  
+  //writes the password in the box
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
@@ -64,6 +67,7 @@ function getSymbol() {
       return hasSymbol;
 }
 
+//makes an Yes array for the things you decdided to add to your password
 function createFunctionArray(lower, upper, symbol) {
   const typesCount = lower + upper + symbol + 1;
 
@@ -89,28 +93,28 @@ function createFunctionArray(lower, upper, symbol) {
   }
   return functions;     
 }
-
+//randomizes the Yes array
 function getCharacter(functions) {
-  //Randomize Yes statements to pick one if not present Otherwise select at random
   var result = functions[Math.floor(Math.random() * functions.length)]();
   return result;  
 }
 
-//Go into randomly selected function and return character
+//random lowercase letter generator
 function getRandomLower() {
   didRandomLower = true;
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
+//random uppercase letter generator
 function getRandomUpper() {
   didRandomUpper = true;
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
-
+//random number generator
 function getRandomNumber() {
   didRandomNumber = true;
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
-
+//random symbol generator
 function getRandomSymbol() {
   didRandomSymbol = true;
   const symbols= '!@#$%^&*(){}[]=<>/,.';
