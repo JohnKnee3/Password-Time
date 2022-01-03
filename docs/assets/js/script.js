@@ -17,10 +17,11 @@ function writePassword() {
   var lower = getLower();
   var upper = getUpper();
   var symbol = getSymbol();
+  var number = getNumber();
   
   var password = "";
   
-  var functions = createFunctionArray(lower, upper, symbol);
+  var functions = createFunctionArray(lower, upper, symbol, number);
 
   //while loop to see if password was made correctly
   while(true) {
@@ -33,7 +34,7 @@ function writePassword() {
     if (((lower && didRandomLower) || !lower) &&
         ((upper && didRandomUpper) || !upper) &&
         ((symbol && didRandomSymbol) || !symbol) && 
-          didRandomNumber) {   
+        ((number && didRandomNumber) || !number)) {   
       break; 
     } 
     //if not we reset the password string  
@@ -77,13 +78,19 @@ function getSymbol() {
       return hasSymbol;
 }
 
+//Number Question
+function getNumber() {
+  var hasNumber = window.confirm('Would you like to include Number characters. Click Ok for "YES" and Cancel for "NO".');
+      return hasNumber;
+}
+
 //makes an Yes array for the things you decdided to add to your password
-function createFunctionArray(lower, upper, symbol) {
-  const typesCount = lower + upper + symbol + 1;
+function createFunctionArray(lower, upper, symbol, number) {
+  const typesCount = lower + upper + symbol + number;
 
   var functions = new Array(typesCount);
 
-  var didLower = didUpper = didSymbol = false;
+  var didLower = didUpper = didSymbol = didNumber = false;
 
   for (var i = 0; i < typesCount; i++) {
     if (lower && !didLower) {
@@ -98,8 +105,10 @@ function createFunctionArray(lower, upper, symbol) {
       functions[i] = getRandomSymbol;
       didSymbol = true; 
     } 
-    else 
+    else if (number && !didNumber) {
       functions[i] = getRandomNumber;  
+      didNumber = true;
+    }
   }
   return functions;     
 }
