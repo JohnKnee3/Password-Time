@@ -21,12 +21,13 @@ function writePassword() {
   
   
   var password = "";
-  //check if everything is not selected and prints this instead
+  //check if everything is not selected and prints this 
   if (!lower && !upper && !symbol && !number) {
     var password = "You get nothing!"
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
   }
+  //otherwise runs the function as intended starting with the array
   else{
     var functions = createFunctionArray(lower, upper, symbol, number);
 
