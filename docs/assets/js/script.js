@@ -19,8 +19,14 @@ function writePassword() {
   var symbol = getSymbol();
   var number = getNumber();
   
-  var password = "";
   
+  var password = "";
+
+  if (!lower, !upper, !symbol, !number) {
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
+
   var functions = createFunctionArray(lower, upper, symbol, number);
 
   //while loop to see if password was made correctly
@@ -88,7 +94,10 @@ function getNumber() {
 function createFunctionArray(lower, upper, symbol, number) {
   const typesCount = lower + upper + symbol + number;
 
+
   var functions = new Array(typesCount);
+
+  
 
   var didLower = didUpper = didSymbol = didNumber = false;
 
