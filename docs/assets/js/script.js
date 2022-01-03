@@ -13,7 +13,7 @@ function writePassword() {
 
   const typesCount = lower + upper + symbol;
 
-  const typesArr = [{lower}, {upper}, {symbol}].filter
+  const typesArr = [{lower}, {upper}, {symbol}, {length}].filter
   (item => Object.values(item)[0]);
 
   console.log('typesArr: ', typesArr);
