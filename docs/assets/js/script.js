@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 //the button call that starts it all
 generateBtn.addEventListener("click", writePassword);
 
-//variables for checking if they are included
+//variables set to false for checking if lower, upper, number and symbol are included. See line 33 and 114 for lower reference
 var didRandomLower = false; 
 var didRandomUpper = false;
 var didRandomSymbol = false;
@@ -24,15 +24,25 @@ function writePassword() {
 
   //while loop to see if password was made correctly
   while(true) {
+    
     //for loop to make the password
     for (var i = 0; i < length; i++) {
       password = password + getCharacter(functions) 
     } 
+    //checking if at least one of every selected character is in the password
     if (((lower && didRandomLower) || !lower) &&
         ((upper && didRandomUpper) || !upper) &&
         ((symbol && didRandomSymbol) || !symbol) && 
-          didRandomNumber)    
-      break;  
+          didRandomNumber) {   
+      break; 
+    } 
+    //if not we reset the password string  
+    password = "";
+    //and set all necessary variables to false so the previous "if" statement will work properly
+    didRandomLower = false;
+    didRandomUpper = false;
+    didRandomSymbol = false;
+    didRandomNumber = false;
   } 
   //writes the password in the box
   var passwordText = document.querySelector("#password");
