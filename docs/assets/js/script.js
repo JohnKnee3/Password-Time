@@ -26,39 +26,37 @@ function writePassword() {
     var password = "You get nothing!"
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
-    return "";
   }
-  
+  else{
+    var functions = createFunctionArray(lower, upper, symbol, number);
 
-  var functions = createFunctionArray(lower, upper, symbol, number);
-
-  //while loop to see if password was made correctly
-  while(true) {
-    
-    //for loop to make the password
-    for (var i = 0; i < length; i++) {
-      password = password + getCharacter(functions) 
+    //while loop to see if password was made correctly
+    while(true) {
+      
+      //for loop to make the password
+      for (var i = 0; i < length; i++) {
+        password = password + getCharacter(functions) 
+      } 
+      //checking if at least one of every selected character is in the password
+      if (((lower && didRandomLower) || !lower) &&
+          ((upper && didRandomUpper) || !upper) &&
+          ((symbol && didRandomSymbol) || !symbol) && 
+          ((number && didRandomNumber) || !number)) {   
+        break; 
+      } 
+      //if not we reset the password string  
+      password = "";
+      //and set all necessary variables to false so the previous "if" statement will work properly
+      didRandomLower = false;
+      didRandomUpper = false;
+      didRandomSymbol = false;
+      didRandomNumber = false;
     } 
-    //checking if at least one of every selected character is in the password
-    if (((lower && didRandomLower) || !lower) &&
-        ((upper && didRandomUpper) || !upper) &&
-        ((symbol && didRandomSymbol) || !symbol) && 
-        ((number && didRandomNumber) || !number)) {   
-      break; 
-    } 
-    //if not we reset the password string  
-    password = "";
-    //and set all necessary variables to false so the previous "if" statement will work properly
-    didRandomLower = false;
-    didRandomUpper = false;
-    didRandomSymbol = false;
-    didRandomNumber = false;
-  } 
-  //writes the password in the box
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+    //writes the password in the box
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
 }
-
 //Length Question
 function getLength() {
   var passwordLength = window.prompt("How many characters would you like your password to be?  Select a number between 8 and 128.");
