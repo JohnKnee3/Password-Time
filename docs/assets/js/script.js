@@ -28,7 +28,7 @@ function writePassword() {
     if (((lower && didRandomLower) || !lower) &&
         ((upper && didRandomUpper) || !upper) &&
         ((symbol && didRandomSymbol) || !symbol) && 
-          didRandomNumber)
+          didRandomNumber)    
       break;  
   } 
   
