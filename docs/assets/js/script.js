@@ -1,6 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//the call that starts it all
+generateBtn.addEventListener("click", writePassword);
+
 //main function that writes the password
 function writePassword() {
   //storage of answers from the questions
@@ -10,18 +13,12 @@ function writePassword() {
   var upper = getUpper();
   var symbol = getSymbol();
   
-
-  const typesCount = lower + upper + symbol;
-
-  const typesArr = [{lower}, {upper}, {symbol}, {length}].filter
-  (item => Object.values(item)[0]);
-
-  console.log('typesArr: ', typesArr);
-
-
   var password = "";
+
+  var functions = createFunctionArray(lower, upper, symbol);
+
   for (var i = 0; i < length; i++) {
-    password = password + getCharacter() 
+    password = password + getCharacter(functions) 
   }    
   
   var passwordText = document.querySelector("#password");
@@ -56,12 +53,33 @@ function getSymbol() {
       return hasSymbol;
 }
 
+function createFunctionArray(lower, upper, symbol) {
+  const typesCount = lower + upper + symbol + 1;
 
-function getCharacter() {
+  var functions = new Array(typesCount);
 
-   //Check to what was selected Yes
-  var functions = [getRandomLower, getRandomUpper, getRandomNumber, getRandomSymbol];
+  var didLower = didUpper = didSymbol = false;
 
+  for (var i = 0; i < typesCount; i++) {
+    if (lower && !didLower) {
+      functions[i] = getRandomLower;
+      didLower = true;
+    }     
+    else if (upper && !didUpper){
+      functions[i] = getRandomUpper;
+      didUpper = true;
+    }
+    else if (symbol && !didSymbol) {
+      functions[i] = getRandomSymbol;
+      didSymbol = true; 
+    } 
+    else 
+      functions[i] = getRandomNumber;  
+  }
+  return functions;     
+}
+
+function getCharacter(functions) {
   //Randomize Yes statements to pick one if not present Otherwise select at random
   var result = functions[Math.floor(Math.random() * functions.length)]();
   return result;  
@@ -84,8 +102,6 @@ function getRandomSymbol() {
   return symbols [Math.floor(Math.random() * symbols.length)];
 }
 
-//the call that starts it all
-generateBtn.addEventListener("click", writePassword);
 
 
 
