@@ -59,35 +59,35 @@ function writePassword() {
 }
 //Length Question
 function getLength() {
-  var passwordLength = window.prompt("How many characters would you like your password to be?  Select a number between 8 and 128.");
+  var passwordLength = prompt("How many characters would you like your password to be?  Select a number between 8 and 128.");
   if (passwordLength >= 8 && passwordLength <= 128) {
     return passwordLength;
   }
-  window.alert("Pease enter a valid response.");
+  alert("Pease enter a valid response.");
     return getLength();
   
 }
 //Lowercase Question
 function getLower() {
-  var hasLower = window.confirm('Would you like to include Lower Case characters. Click Ok for "YES" and Cancel for "NO".');
+  var hasLower = confirm('Would you like to include Lower Case characters. Click Ok for "YES" and Cancel for "NO".');
       return hasLower;
 }
   
 //Uppercase question 
 function getUpper() {
-  var hasUpper = window.confirm('Would you like to include Upper Case characters. Click Ok for "YES" and Cancel for "NO".');
+  var hasUpper = confirm('Would you like to include Upper Case characters. Click Ok for "YES" and Cancel for "NO".');
       return hasUpper;
 }
   
 //Symbol Question
 function getSymbol() {
-  var hasSymbol = window.confirm('Would you like to include Symbol characters. Click Ok for "YES" and Cancel for "NO".');
+  var hasSymbol = confirm('Would you like to include Symbol characters. Click Ok for "YES" and Cancel for "NO".');
       return hasSymbol;
 }
 
 //Number Question
 function getNumber() {
-  var hasNumber = window.confirm('Would you like to include Number characters. Click Ok for "YES" and Cancel for "NO".');
+  var hasNumber = confirm('Would you like to include Number characters. Click Ok for "YES" and Cancel for "NO".');
       return hasNumber;
 }
 
